@@ -101,5 +101,21 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(endCount - startCount, 2);
         }
 
+        [TestMethod]
+        public void TestURLTrades()
+        {
+            //Arrange
+            string url = "http://faculty.css.edu/tgibbons/trades4.txt";
+            int startCount = CountDbRecords();
+            var tradeProcessor = new TradeProcessor();
+
+            //Act
+            tradeProcessor.ProcessURLTrades(url);
+            int endCount = CountDbRecords();
+
+            //Assert
+            Assert.AreEqual(endCount - startCount, 4);
+        }
+
     }
 }

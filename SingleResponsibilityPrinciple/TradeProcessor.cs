@@ -10,7 +10,8 @@ namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
     {
-        private IEnumerable<string> ReadTradeData(Stream stream)
+        //Read Trade Data from local file
+        private IEnumerable<string> ReadFileTradeData(Stream stream)
         {
             var tradeData = new List<string>();
             using (var reader = new StreamReader(stream))
@@ -145,9 +146,36 @@ namespace SingleResponsibilityPrinciple
 
         public void ProcessTrades(Stream stream)
         {
-            var lines = ReadTradeData(stream);
+            var lines = ReadFileTradeData(stream);
             var trades = ParseTrades(lines);
             StoreTrades(trades);
+        }
+
+        //Process Trades from a URL reference
+        public void ProcessURLTrades(string url)
+        {
+            var lines = ReadURLTradeData(url);
+            var trades = ParseTrades(lines);
+            StoreTrades(trades);
+        }
+
+        //Read Trades from a URL reference
+        public List<string> ReadURLTradeData(string url)
+        {
+            var tradeData = new List<string>();
+            // create a web client and use it to read the file stored at the given URL
+            var client = new WebClient();
+            using (var stream = client.OpenRead(url))
+            using (var reader = new StreamReader(stream))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    tradeData.Add(line);
+                }
+            }
+            
+            return tradeData;
         }
 
 
