@@ -67,7 +67,7 @@ namespace SingleResponsibilityPrinciple
                 LogMessage("WARN", " Trade amount on line {0} not a valid integer: '{1}'", currentLine, fields[1]);
                 return false;
             }
-            else if(tradeAmount < 1000 || tradeAmount > 100000)
+            else if(tradeAmount < 1000 || tradeAmount > 100000) //If lot size is under 1000 or more than 100000, throw error
             {
                 LogMessage("WARN", " Trade amount on line {0} is not between 1,000 and 10,000 units: '{1}'", currentLine, fields[1]);
                 return false;
@@ -86,6 +86,10 @@ namespace SingleResponsibilityPrinciple
         private void LogMessage(string msgType, string message, params object[] args)
         {
             Console.WriteLine(msgType+ " :" +message, args);
+            using (StreamWriter w = File.AppendText("log.xml")) //Log information to an xml file
+            {
+                w.WriteLine("<log><type>" + msgType + "</type><message>" + message + "</message>"); //message to write out
+            }
         }
 
         private TradeRecord MapTradeDataToTradeRecord(string[] fields)
@@ -110,6 +114,7 @@ namespace SingleResponsibilityPrinciple
         {
             LogMessage("INFO", "  Connecting to Database");
             //using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            //Connection to athena.css.edu database instead of local file
             string connectSqlServer = "Data Source = athena.css.edu; Initial Catalog = CIS3285; Persist Security Info = True; User ID = tgibbons; Password = Data Source = athena.css.edu; Initial Catalog = CIS3285; Persist Security Info = True; User ID = tgibbons; Password = Saints4CSS";
             using (var connection = new System.Data.SqlClient.SqlConnection(connectSqlServer))
             {
