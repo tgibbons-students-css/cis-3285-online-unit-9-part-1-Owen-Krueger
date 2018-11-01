@@ -3,3 +3,9 @@ C:\Users\tgibbons\source\repos\cis-3285-unit-9-practice-tgibbons-css\Database\bi
 C:\Users\tgibbons\source\repos\cis-3285-unit-9-practice-tgibbons-css\Database\bin\Debug\Database.pdb
 C:\Users\tgibbons\source\repos\cis-3285-unit-9-practice-tgibbons-css\Database\obj\Debug\Database.dll
 C:\Users\tgibbons\source\repos\cis-3285-unit-9-practice-tgibbons-css\Database\obj\Debug\Database.pdb
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\bin\Debug\Database.dacpac
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\bin\Debug\Database.dll
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\bin\Debug\Database.pdb
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\obj\Debug\Database.sqlprojAssemblyReference.cache
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\obj\Debug\Database.dll
+C:\Users\okrueger\Source\Repos\cis-3285-online-unit-9-part-1-Owen-Krueger\Database\obj\Debug\Database.pdb
