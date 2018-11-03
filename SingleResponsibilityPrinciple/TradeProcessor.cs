@@ -89,7 +89,7 @@ namespace SingleResponsibilityPrinciple
             Console.WriteLine(msgType+ " :" +message, args);
             using (StreamWriter w = File.AppendText("log.xml")) //Log information to an xml file
             {
-                w.WriteLine("<log><type>" + msgType + "</type><message>" + message + "</message>"); //message to write out
+                w.WriteLine("<log><type>" + msgType + "</type><message>" + message + "</message>", args); //message to write out
             }
         }
 
